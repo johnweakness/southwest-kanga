@@ -39,8 +39,8 @@ export default function SettingsPage() {
     setUpdating(false)
 
     if (result.success) {
-      setMobilizationFee(result.fee)
-      setStatus({ success: true, message: `✅ Mobilization fee updated to $${result.fee.toFixed(2)}` })
+      setMobilizationFee(result.fee ?? 0)
+      setStatus({ success: true, message: `✅ Mobilization fee updated to $${(result.fee ?? 0).toFixed(2)}` })
     } else {
       setStatus({ success: false, message: '❌ Failed to update fee' })
     }
