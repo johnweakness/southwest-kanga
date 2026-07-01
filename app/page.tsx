@@ -54,8 +54,14 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href="#quote" 
+              href="/booking" 
               className="bg-kangaYellow text-kangaGreen font-bold px-8 py-4 rounded-md shadow-lg hover:brightness-110 transition text-lg"
+            >
+              Book a Service
+            </a>
+            <a 
+              href="#quote" 
+              className="bg-white text-kangaGreen font-bold px-8 py-4 rounded-md shadow-lg hover:brightness-110 transition text-lg"
             >
               Get a Free Quote
             </a>

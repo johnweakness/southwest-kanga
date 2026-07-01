@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id                    String   @id @default(cuid())
+  customerName          String
+  customerPhone         String
+  customerEmail         String
+  siteAddress           String
+  serviceType           String   // "plants", "yard-clearing", "clearing-spreading", "other"
+  serviceDescription   String
+  preferredDate         String
+  preferredTime         String?
+  estimatedHours        Float?
+  mobilizationFee       Float    @default(150) // Default mobilization fee
+  additionalNotes       String?
+  status                String   @default("pending") // pending, confirmed, completed, cancelled
+  totalCost             Float?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model MobilizationSettings {
+  id    String  @id @default("default")
+  fee   Float   @default(150)
+  updatedAt DateTime @updatedAt
+}
